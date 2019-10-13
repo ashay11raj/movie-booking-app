@@ -1,0 +1,61 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 10vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.content {
+  display: grid;
+  justify-content: center;
+}
+
+.menu {
+  display: inline-flex;
+}
+.menu-item {
+  padding: 2px;
+  margin: 1em;
+}
+.seat-viewer {
+  height: 500px;
+  width: 500px;
+  justify-content: center;
+  border-style: solid;
+}
+.seat {
+  min-height: 40px;
+  min-width: 40px;
+  border-style: solid;
+  font-weight: bold;
+  margin: 2px;
+  justify-content: center;
+  display: inline-block;
+}
+.legend-list {
+  display: flex;
+}
+.legend{
+  display: table;
+  margin: 2px;
+}
+.legend-color {
+  min-height: 15px;
+  min-width: 15px;
+  display: inline-block;
+}
+.book-seat {
+  display: flex;
+  
+}
+.book-seat-detail {
+  
+  margin: 2px;
+}
