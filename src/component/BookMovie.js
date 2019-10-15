@@ -3,16 +3,32 @@ import axios from 'axios';
 import DummyData from './DummyData';
 import SeatViewer from './SeatViewer';
 
+const getAllMoviesForAllCities = query => {
+    
+    return axios
+        .get(`/moviebookingapi/getmovies`)
+        .then(response => response)
+}
+
 class BookMovie extends React.Component {
-    state = {
-        cityList: DummyData,
-        seatList: null,
-        cityId: null,
-        theaterId: null,
-        showId: null,
-        seatNumber: null,
-        showMenu: true
+    constructor(props){
+        super(props);
+        this.state = {
+            cityList: null,
+            seatList: null,
+            cityId: null,
+            theaterId: null,
+            showId: null,
+            seatNumber: null,
+            showMenu: true
+        }
+        getAllMoviesForAllCities().then((resp) => {
+            this.setState((state, props) => ({
+                cityList: resp.data
+            }));    
+        });
     }
+    
     citySelectList = [];
     theaterSelectList = [];
     showsSelectList = [];
@@ -63,8 +79,8 @@ class BookMovie extends React.Component {
         let city = cityList.find(city => city.cityId == state.cityId);
         let theater = city.theaterList.find(theater => theater.theaterName == value.target.selectedOptions[0].value);
         this.showsSelectList.push(<option value="default">--Select Show--</option>);
-        theater.showsList.forEach( show => {
-                this.showsSelectList.push(<option value={show.showName}>{show.showName}[{show.showStartTime}]</option>);
+        theater.showList.forEach( show => {
+                this.showsSelectList.push(<option value={show.showName}>{show.showName}</option>);
             }
         );
         state['theaterId'] = theater.theaterId;
@@ -90,7 +106,7 @@ class BookMovie extends React.Component {
         this.seatList = [];
         let city = cityList.find(city => city.cityId == state.cityId);
         let theater = city.theaterList.find(theater => theater.theaterId == state.theaterId);
-        let show = theater.showsList.find(show => show.showName == value.target.selectedOptions[0].value);
+        let show = theater.showList.find(show => show.showName == value.target.selectedOptions[0].value);
         
         state['showId'] = show.showId;
         state['seatList'] = show.seatList;
@@ -102,6 +118,18 @@ class BookMovie extends React.Component {
         }));
     }
     bookSeat = function () {
+        let selectedSeat = {
+            cityId: this.state.cityId,
+            theaterId: this.state.theaterId,
+            showId: this.state.showId,
+            seatNumber: this.state.seatNumber
+        };
+        axios
+        .post(`/moviebookingapi/bookmovie`, selectedSeat)
+        .then(response => {
+            alert('Seat number ' + response.data.seatNumber + ' is ' + response.data.bookingStatus + '.');
+            window.location.reload();
+        })
     }
     seatClicked = function (value) {
         if(value == null || value == undefined ||
@@ -117,10 +145,10 @@ class BookMovie extends React.Component {
             seatNumber: clickedSeatNumber
         }));
         let selectedSeat = this.state.seatList.find(seat => seat.seatNumber == clickedSeatNumber);
-        selectedSeat['bookingStatus'] = 'clicked';
+        selectedSeat['bookingStatus'] = 'selected';
     }
     render() {
-        if(this.citySelectList.length == 0){
+        if(this.citySelectList.length == 0 && this.state.cityList){
             this.citySelectList.push(<option value="default">--Select City--</option>);
             this.state.cityList.forEach(city => {
                 this.citySelectList.push(<option value={city.cityName}>{city.cityName}</option>);

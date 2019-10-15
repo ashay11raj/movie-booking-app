@@ -5,7 +5,7 @@ const seatColorMap = {
     available: 'green',
     inprogress: 'grey',
     booked: 'red',
-    clicked: "blue"
+    selected: "blue"
 }
 const seat = (props) => {
     return (
@@ -24,18 +24,18 @@ const seatViewer = (props) => {
             <div className="seat-viewer">
                 {seatLayout} 
             </div>
-            <div className='legend-list'>
+            <div className='legend-list'> 
                 <div className='legend'>
-                    Booked: <div className="legend-color" style={{'background-color':seatColorMap['booked']}}></div>
+                    Booked: <div className="legend-color" style={{'margin-right':'2em', 'background-color':seatColorMap['booked']}}></div>
                 </div>
                 <div className='legend'>
-                    Available: <div className="legend-color" style={{'background-color':seatColorMap['available']}}></div>
+                    Available: <div className="legend-color" style={{'margin-right':'2em', 'background-color':seatColorMap['available']}}></div>
                 </div>
                 <div className='legend'>
-                    Inprogress: <div className="legend-color" style={{'background-color':seatColorMap['inprogress']}}></div>
+                    Inprogress: <div className="legend-color" style={{'margin-right':'2em', 'background-color':seatColorMap['inprogress']}}></div>
                 </div>
                 <div className='legend'>
-                    Clicked: <div className="legend-color" style={{'background-color':seatColorMap['clicked']}}></div>
+                    Selected: <div className="legend-color" style={{'margin-right':'2em', 'background-color':seatColorMap['selected']}}></div>
                 </div>
             </div>
         </div>

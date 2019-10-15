@@ -27,16 +27,16 @@ export default
                 {
                     theaterId: 1,
                     theaterName: 'Mumbai-PVR',
-                    showsList: [
+                    showList: [
                         {
                             showId: 1,
-                            showName: 'Mumbai-PVR-Movie1',
+                            showName: 'Mumbai-PVR-Movie1[9AM]',
                             showStartTime: '9:00 am',
                             seatList: seatList(20)
                         },
                         {
                           showId: 2,
-                          showName: 'Mumbai-PVR-Movie2',
+                          showName: 'Mumbai-PVR-Movie2[12PM]',
                           showStartTime: '12:00 pm',
                           seatList: seatList(22)
                       }
@@ -45,16 +45,16 @@ export default
                 {
                   theaterId: 2,
                   theaterName: 'Mumbai-INOX',
-                  showsList: [
+                  showList: [
                       {
                           showId: 1,
-                          showName: 'Mumbai-INOX-Movie3',
+                          showName: 'Mumbai-INOX-Movie3[9AM]',
                           showStartTime: '9:00 am',
                           seatList: seatList(24)
                       },
                       {
                         showId: 2,
-                        showName: 'Mumbai-INOX-Movie2',
+                        showName: 'Mumbai-INOX-Movie2[12PM]',
                         showStartTime: '12:00 pm',
                         seatList: seatList(26)
                     }
@@ -69,16 +69,16 @@ export default
               {
                   theaterId: 1,
                   theaterName: 'Delhi-PVR',
-                  showsList: [
+                  showList: [
                       {
                           showId: 1,
-                          showName: 'Delhi-PVR-Movie1',
+                          showName: 'Delhi-PVR-Movie1[9AM]',
                           showStartTime: '9:00 am',
                           seatList: seatList(28)
                       },
                       {
                         showId: 2,
-                        showName: 'Delhi-PVR-Movie2',
+                        showName: 'Delhi-PVR-Movie2[12PM]',
                         showStartTime: '12:00 pm',
                         seatList: seatList(30)
                     }
@@ -87,16 +87,16 @@ export default
               {
                 theaterId: 2,
                 theaterName: 'Delhi-INOX',
-                showsList: [
+                showList: [
                     {
                         showId: 1,
-                        showName: 'Delhi-INOX-Movie3',
+                        showName: 'Delhi-INOX-Movie3[9AM]',
                         showStartTime: '9:00 am',
                         seatList: seatList(20)
                     },
                     {
                       showId: 2,
-                      showName: 'Delhi-INOX-Movie2',
+                      showName: 'Delhi-INOX-Movie2[12PM]',
                       showStartTime: '12:00 pm',
                       seatList: seatList(22)
                   }
